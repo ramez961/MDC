@@ -1,0 +1,307 @@
+const languageToggle = document.getElementById("languageToggle");
+const translations = {
+  "Expertise": "Expertise",
+  "Catalogue": "Catalogue",
+  "Services": "Services",
+  "Livraison": "Delivery",
+  "Demande partenariat": "Partnership request",
+  "Voir le catalogue": "View the catalogue",
+  "Demander un devis": "Request a quote",
+  "FOURNISSEUR BOULANGER — ÎLE-DE-FRANCE": "BAKERY SUPPLIER — ÎLE-DE-FRANCE",
+  "ANS D'EXPÉRIENCE": "YEARS OF EXPERIENCE",
+  "RESTAURANTS PARTENAIRES": "PARTNER RESTAURANTS",
+  "LIVRAISON ÎLE-DE-FRANCE": "ÎLE-DE-FRANCE DELIVERY",
+  "5j/7": "5 days/week",
+  "COMMANDE MINIMUM": "MINIMUM ORDER",
+  "CATALOGUE": "CATALOGUE",
+  "Produit": "Product",
+  "Format": "Size",
+  "Conditionnement": "Packaging",
+  "NOUVEAU": "NEW",
+  "ALLERGIE": "ALLERGY",
+  "ÉVÉNEMENT": "EVENT",
+  "CONTACT": "CONTACT",
+  "Demande de partenariat": "Partnership request",
+  "Prénom": "First name",
+  "Nom": "Last name",
+  "Envoyer la demande": "Send request",
+  "Le goût commence par la matière.": "Great taste starts with great ingredients.",
+  "Livraison fiable": "Reliable delivery",
+  "Avant votre service, 5 jours sur 7": "Before service, 5 days a week",
+  "Formats professionnels": "Professional formats",
+  "Conditionnements adaptés à vos volumes": "Packaging adapted to your volumes",
+  "Qualité constante": "Consistent quality",
+  "Les mêmes recettes à chaque livraison": "The same recipes at every delivery",
+  "Un interlocuteur dédié": "A dedicated contact",
+  "Une réponse rapide, sans plateforme": "A fast response, without a platform",
+  "Pains du quotidien": "Everyday breads",
+  "Pains signature": "Signature breads",
+  "Formats restauration": "Catering formats",
+  "Sur commande": "Made to order",
+  "Formats sur mesure": "Custom formats"
+};
+
+Object.assign(translations, {
+  "FABRICATION DE PAINS ET DE PÂTISSERIES": "BREAD AND PASTRY MAKING",
+  "Ouvrir le menu": "Open menu",
+  "Accueil": "Home",
+  "Catalogue et savoir-faire": "Catalogue and expertise",
+  "Engagements professionnels": "Professional commitments",
+  "ÎLE-DE-FRANCE DELIVERY": "ÎLE-DE-FRANCE DELIVERY",
+  "Le pain qui fait la différence": "The bread that makes a difference",
+  "Le pain qui fait la différence,": "The bread that makes a difference,",
+  "Le savoir-faire boulanger au service des professionnels.": "Baking expertise for food-service professionals.",
+  "à chaque service.": "at every service.",
+  "Maison du Cèdre accompagne les restaurants, hôtels, traiteurs et professionnels de la restauration avec des pains de qualité, conçus pour répondre aux exigences du service professionnel. Livraison 5 jours sur 7, commande minimum à partir de 15 kg.": "Maison du Cèdre supports restaurants, hotels, caterers and food-service professionals with quality breads designed to meet the demands of professional service. Delivery five days a week, with minimum orders from 15 kg.",
+  "Le goût commence par la matière.": "Great taste starts with great ingredients.",
+  "EXTRAIT DU CATALOGUE": "CATALOGUE EXCERPT",
+  "250 g · par 10 ou 25 unités": "250 g · packs of 10 or 25",
+  "Pain de campagne rustique": "Rustic country loaf",
+  "Baguette de tradition": "Traditional baguette",
+  "800 g · entier ou prétranché": "800 g · whole or pre-sliced",
+  "Fougasse aux olives": "Olive fougasse",
+  "350 g · par 8 unités": "350 g · packs of 8",
+  "Brioche burger artisanale": "Artisan burger brioche",
+  "90 g · par 12 ou 30 unités": "90 g · packs of 12 or 30",
+  "x12 ou x30": "x12 or x30",
+  "RESTAURATION": "CATERING",
+  "Pain spécial sans gluten": "Special gluten-free bread",
+  "350 g · conditionnement individuel": "350 g · individually packaged",
+  "Notre fournil, Île-de-France": "Our bakery, Île-de-France",
+  "ANS D'EXPERTISE": "YEARS OF EXPERTISE",
+  "NOTRE EXPERTISE": "OUR EXPERTISE",
+  "Une maison construite pour les exigences": "A bakery built for the demands",
+  "de la restauration.": "of professional catering.",
+  "Maison du Cèdre a été fondée avec une seule conviction : les professionnels de la table méritent un fournisseur qui comprend leurs contraintes — les horaires, les volumes, la régularité, et la pression du service.": "Maison du Cèdre was founded on one conviction: hospitality professionals deserve a supplier who understands their constraints — schedules, volumes, consistency and service pressure.",
+  "Depuis 25 ans, nous livrons des pains qui tiennent leur promesse à chaque table : croûte, mie, arôme, et présentation, du premier au dernier couvert.": "For 25 years, we have delivered breads that keep their promise at every table: crust, crumb, aroma and presentation, from the first to the last guest.",
+  "ZONE DE LIVRAISON": "DELIVERY AREA",
+  "DÉLAI STANDARD": "STANDARD LEAD TIME",
+  "Commande J, livraison J+1": "Order day, delivery next day",
+  "MINIMUM DE COMMANDE": "MINIMUM ORDER",
+  "15 kg ou 80 € HT": "15 kg or €80 excl. VAT",
+  "Des références pensées": "Products designed",
+  "pour le service en salle.": "for table service.",
+  "Chaque produit est disponible frais ou précuit selon vos besoins de stockage. Conditionnements adaptés aux volumes professionnels.": "Every product is available fresh or par-baked to suit your storage needs. Packaging is adapted to professional volumes.",
+  "Pains du quotidien": "Everyday breads",
+  "Baguettes, pains de campagne et petits pains pour accompagner chaque couvert.": "Baguettes, country loaves and dinner rolls for every place setting.",
+  "Pains signature": "Signature breads",
+  "Recettes aux graines, levain naturel et croûtes généreuses pour une offre distinctive.": "Seeded recipes, natural sourdough and generous crusts for a distinctive offering.",
+  "Formats restauration": "Catering formats",
+  "Brioche burger, focaccia et formats traiteur pensés pour vos cartes et vos volumes.": "Burger brioche, focaccia and catering formats designed for your menus and volumes.",
+  "250 g à 800 g": "250 g to 800 g",
+  "Formats sur mesure": "Custom formats",
+  "PRO": "PRO",
+  "Conditionnement": "Packaging",
+  "Baguette de tradition française": "Traditional French baguette",
+  "Farine T65 label Rouge Moulin": "Moulin Label Rouge T65 flour",
+  "Boîte de 10 ou 25": "Box of 10 or 25",
+  "Pain de campagne rustique": "Rustic country loaf",
+  "Levain naturel, croûte épaisse": "Natural sourdough, thick crust",
+  "Entier ou prétranché · x6": "Whole or pre-sliced · x6",
+  "Focaccia huile d'olive & romarin": "Olive oil & rosemary focaccia",
+  "Recette artisanale maison": "House artisan recipe",
+  "Plateau de 8": "Tray of 8",
+  "Fougasse aux olives de Kalamata": "Kalamata olive fougasse",
+  "Huile d'olive AOP, olives entières": "PDO olive oil, whole olives",
+  "Brioche burger artisanale": "Artisan burger brioche",
+  "Mie filante, graines de sésame": "Soft, pull-apart crumb with sesame seeds",
+  "Pain ciabatta": "Ciabatta bread",
+  "Alvéoles généreuses, croûte fine": "Generous air pockets, thin crust",
+  "Petit pain individuel de table": "Individual dinner roll",
+  "Assortiment 3 variétés": "Assortment of 3 varieties",
+  "Pain sans gluten certifié": "Certified gluten-free bread",
+  "Conditionnement individuel scellé": "Individually sealed packaging",
+  "Pain de mie sandwich premium": "Premium sandwich bread",
+  "Tranché fin ou épais selon commande": "Thin or thick sliced to order",
+  "Couronne libanaise à partager": "Lebanese sharing crown",
+  "Recette maison, à commander 48 h à l'avance": "House recipe, order 48 hours in advance",
+  "Lun": "Mon",
+  "Mar": "Tue",
+  "Mer": "Wed",
+  "Jeu": "Thu",
+  "Ven": "Fri",
+  "Sam": "Sat",
+  "Dim": "Sun",
+  "Email": "Email",
+  "Conditions tarifaires et grille dégressive selon le volume et la fréquence de commande. Contactez notre équipe commerciale.": "Pricing terms and volume- and frequency-based discounts are available from our sales team.",
+  "Catalogue complet disponible sur demande.": "Full catalogue available on request.",
+  "DU FOURNIL À VOTRE TABLE": "FROM OUR BAKERY TO YOUR TABLE",
+  "Ce qui différencie notre pain,": "What makes our bread different",
+  "c'est ce que vous ne voyez pas.": "is what you do not see.",
+  "Sélection des farines": "Flour selection",
+  "Farines françaises Label Rouge, levain chef entretenu depuis 12 ans et ingrédients sans additifs.": "French Label Rouge flours, a 12-year-old maintained starter and additive-free ingredients.",
+  "Fermentation longue": "Long fermentation",
+  "12 à 24 h de pousse selon les recettes. La fermentation lente construit le goût.": "12 to 24 hours of proofing depending on the recipe. Slow fermentation builds flavour.",
+  "Façonnage manuel": "Hand shaping",
+  "Chaque pièce est façonnée à la main. Pas de ligne industrielle, pas de standardisation.": "Every piece is shaped by hand. No industrial production line, no standardisation.",
+  "Livraison matin": "Morning delivery",
+  "Cuisson nocturne, départ à 4 h. Votre pain est en salle avant votre équipe.": "Baked overnight and dispatched at 4 a.m. Your bread is in place before your team.",
+  "NOTRE ENGAGEMENT": "OUR COMMITMENT",
+  "Ce que vous êtes en droit": "What you have every right",
+  "d'attendre de nous.": "to expect from us.",
+  "Régularité garantie": "Guaranteed consistency",
+  "Même goût, même texture, même poids — à chaque livraison. Si un lot ne répond pas à nos standards, il ne part pas.": "The same taste, texture and weight at every delivery. If a batch does not meet our standards, it does not leave.",
+  "Livraison 5 jours sur 7": "Delivery 5 days a week",
+  "Du lundi au vendredi. Fermé le samedi et le dimanche. Plage horaire choisie par établissement.": "Monday to Friday. Closed Saturday and Sunday. Time slot chosen by each establishment.",
+  "Interlocuteur dédié": "Dedicated contact",
+  "Un commercial attitré pour chaque compte. Pas de plateforme, pas de robot — une personne.": "A dedicated sales representative for every account. No platform, no robot — a real person.",
+  "Commande jusqu'à 18h pour J+1": "Order by 6 p.m. for next-day delivery",
+  "Flexibilité de dernière minute pour les besoins imprévus ou les couverts supplémentaires.": "Last-minute flexibility for unexpected needs or additional covers.",
+  "FICHES TECHNIQUES ET ALLERGÈNES": "TECHNICAL AND ALLERGEN SHEETS",
+  "Documents disponibles pour chaque référence. Mise à jour automatique en cas de changement de recette.": "Documents available for every product. Automatically updated when a recipe changes.",
+  "Devenir partenaire": "Become a partner",
+  "Nous travaillons avec des restaurants de tous niveaux — du bistrot de quartier au restaurant gastronomique.": "We work with restaurants of every kind — from neighbourhood bistros to fine-dining establishments.",
+  "— Chef de partie, restaurant gastronomique, Paris 8e": "— Chef de partie, fine-dining restaurant, 8th arrondissement, Paris",
+  "NOS SERVICES": "OUR SERVICES",
+  "Au-delà du pain,": "Beyond bread,",
+  "une relation professionnelle.": "a professional relationship.",
+  "Commande régulière": "Regular ordering",
+  "Fréquence hebdomadaire fixée selon votre activité. Ajustements possibles à tout moment via votre commercial ou notre ligne directe.": "Weekly frequency set according to your activity. Adjustments can be made at any time through your sales representative or direct line.",
+  "Commandes événementielles": "Event orders",
+  "Mariage, séminaire, banquet ou événement privé : pains spéciaux, volumes importants et conditionnements personnalisés sur devis.": "Weddings, seminars, banquets or private events: special breads, large volumes and customised packaging by quotation.",
+  "Catalogue sur mesure": "Custom catalogue",
+  "Vous avez un besoin spécifique — format, grammage ou recette ? Nous développons des références exclusives pour les comptes réguliers.": "Have a specific need — format, weight or recipe? We develop exclusive products for regular accounts.",
+  "Télévente & service client": "Inside sales & customer service",
+  "Commandez par téléphone, e-mail ou WhatsApp. Votre interlocuteur vous répond en moins de 2 h pendant les heures ouvrées.": "Order by phone, email or WhatsApp. Your contact replies within 2 hours during business hours.",
+  "ZONE DE LIVRAISON": "DELIVERY AREA",
+  "L'Île-de-France,": "Île-de-France,",
+  "Île-de-France,": "Île-de-France,",
+  "entièrement couverte.": "fully covered.",
+  "Nos véhicules réfrigérés couvrent l'ensemble de la région, avec des tournées matinales optimisées par secteur.": "Our refrigerated vehicles cover the entire region, with morning routes optimised by area.",
+  "Vous êtes en limite de zone ? Contactez-nous : nous trouvons généralement une solution.": "Just outside our area? Contact us — we can usually find a solution.",
+  "Vérifier ma zone": "Check my area",
+  "Paris — tous les arrondissements": "Paris — all districts",
+  "Unité ou x4": "Single unit or x4",
+  "Île-de-France — 8 départements": "Île-de-France — 8 departments",
+  "\"Pour un restaurant étoilé, le pain n'est pas un accessoire. C'est la première bouchée. Maison du Cèdre le sait, et ça se sent.\"": "\"At a Michelin-starred restaurant, bread is not an accessory. It is the first bite. Maison du Cèdre understands that, and you can taste it.\"",
+  "Votre demande a été envoyée. Notre équipe vous contacte dans la journée.": "Your request has been sent. Our team will contact you today.",
+  "Seine-Saint-Denis": "Seine-Saint-Denis",
+  "Seine-et-Marne (partiel)": "Seine-et-Marne (partial)",
+  "Téléchargez notre catalogue complet.": "Download our full catalogue.",
+  "Grille tarifaire, fiches produits, conditions de livraison — tout ce qu'il vous faut pour évaluer un partenariat.": "Pricing, product sheets and delivery terms — everything you need to assess a partnership.",
+  "Demander le catalogue PDF": "Request the PDF catalogue",
+  "Parler à un commercial": "Speak to a sales representative",
+  "Démarrons": "Let's start",
+  "la conversation.": "the conversation.",
+  "Que vous souhaitiez un devis, une dégustation ou simplement poser une question — notre équipe vous répond dans la journée.": "Whether you want a quote, a tasting or simply have a question, our team will reply the same day.",
+  "TÉLÉPHONE": "PHONE",
+  "Téléphone": "Phone",
+  "EMAIL COMMERCIAL": "SALES EMAIL",
+  "ZONE LIVRÉE": "DELIVERY AREA",
+  "HORAIRES COMMERCIAUX": "BUSINESS HOURS",
+  "Lun–Ven, 7h – 18h · Fermé samedi et dimanche": "Mon–Fri, 7 a.m. – 6 p.m. · Closed Saturday and Sunday",
+  "Demande de partenariat": "Partnership request",
+  "Prénom": "First name",
+  "Nom de l'établissement": "Business name",
+  "Type d'établissement": "Establishment type",
+  "Sélectionner…": "Select…",
+  "Restaurant gastronomique": "Fine dining restaurant",
+  "Brasserie / Bistrot": "Brasserie / Bistro",
+  "Hôtel / Room service": "Hotel / Room service",
+  "Traiteur / Événementiel": "Catering / Events",
+  "Restauration collective": "Institutional catering",
+  "Autre": "Other",
+  "Volume estimé (kg / semaine)": "Estimated volume (kg / week)",
+  "Estimation…": "Estimate…",
+  "Moins de 20 kg": "Less than 20 kg",
+  "20 – 50 kg": "20 – 50 kg",
+  "50 – 100 kg": "50 – 100 kg",
+  "Plus de 100 kg": "More than 100 kg",
+  "Message (optionnel)": "Message (optional)",
+  "Fournisseur de pain artisanal pour les professionnels de la restauration en Île-de-France.": "Artisan bread supplier for catering professionals across Île-de-France.",
+  "NAVIGATION": "NAVIGATION",
+  "Notre expertise": "Our expertise",
+  "Zone de livraison": "Delivery area",
+  "Contact": "Contact",
+  "PROFESSIONNELS": "PROFESSIONALS",
+  "Demande de devis": "Request a quote",
+  "Catalogue PDF": "PDF catalogue",
+  "© 2026 Maison du Cèdre. Tous droits réservés.": "© 2026 Maison du Cèdre. All rights reserved.",
+  "Qualité · Régularité · Proximité": "Quality · Consistency · Proximity",
+  "Navigation principale": "Main navigation",
+  "Maison du Cèdre — accueil": "Maison du Cèdre — home",
+  "Passer le site en anglais": "Switch the site to English",
+  "Passer le site en français": "Switch the site to French",
+  "Lun–Sam": "Mon–Sat",
+  "Lun–Ven": "Mon–Fri",
+  "Mar, Jeu, Sam": "Tue, Thu, Sat",
+  "Mar, Ven": "Tue, Fri",
+  "MINIMUM 15 KG / COMMANDE": "MINIMUM 15 KG / ORDER",
+  "DÉLAI MINIMUM : 48 H": "MINIMUM LEAD TIME: 48 HOURS",
+  "↗ DÉLAI MINIMUM : 48 H": "↗ MINIMUM LEAD TIME: 48 HOURS",
+  "À PARTIR DE 6 MOIS DE PARTENARIAT": "FROM 6 MONTHS OF PARTNERSHIP",
+  "↗ MINIMUM 15 KG / COMMANDE": "↗ MINIMUM 15 KG / ORDER",
+  "↗ DÉLAI 48H MINIMUM": "↗ 48H MINIMUM LEAD TIME",
+  "↗ À PARTIR DE 6 MOIS DE PARTENARIAT": "↗ FROM 6 MONTHS OF PARTNERSHIP",
+  "↗ LUN–VEN 7H–18H": "↗ MON–FRI 7 A.M.–6 P.M."
+});
+
+const frenchByEnglish = Object.fromEntries(
+  Object.entries(translations).map(([french, english]) => [english, french])
+);
+frenchByEnglish["ÎLE-DE-FRANCE DELIVERY"] = "LIVRAISON ÎLE-DE-FRANCE";
+frenchByEnglish["MINIMUM ORDER"] = "COMMANDE MINIMUM";
+frenchByEnglish["DELIVERY AREA"] = "ZONE DE LIVRAISON";
+
+function setLanguage(language) {
+  const isEnglish = language === "en";
+  const dictionary = isEnglish ? translations : frenchByEnglish;
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  let node;
+  while ((node = walker.nextNode())) nodes.push(node);
+  nodes.forEach((textNode) => {
+    const key = textNode.nodeValue.trim();
+    if (dictionary[key]) textNode.nodeValue = textNode.nodeValue.replace(key, dictionary[key]);
+  });
+  document.querySelectorAll("[placeholder], [aria-label], [alt], [title]").forEach((element) => {
+    ["placeholder", "aria-label", "alt", "title"].forEach((attribute) => {
+      const value = element.getAttribute(attribute);
+      if (value && dictionary[value]) element.setAttribute(attribute, dictionary[value]);
+    });
+  });
+  document.documentElement.lang = isEnglish ? "en" : "fr";
+  document.title = isEnglish
+    ? "Maison du Cèdre | Artisan bread for professional catering"
+    : "Maison du Cèdre | Pain artisanal pour la restauration professionnelle";
+  languageToggle.textContent = isEnglish ? "EN" : "FR";
+  languageToggle.setAttribute("aria-label", isEnglish ? "Switch the site to French" : "Passer le site en anglais");
+  languageToggle.dataset.language = language;
+}
+
+function startCountUp(element) {
+  const target = Number(element.dataset.count);
+  const suffix = element.dataset.suffix || "";
+  const duration = 1400;
+  const startTime = performance.now();
+
+  function update(currentTime) {
+    const progress = Math.min((currentTime - startTime) / duration, 1);
+    const easedProgress = 1 - Math.pow(1 - progress, 3);
+    element.textContent = `${Math.round(target * easedProgress)}${suffix}`;
+
+    if (progress < 1) {
+      requestAnimationFrame(update);
+    }
+  }
+
+  element.textContent = `0${suffix}`;
+  requestAnimationFrame(update);
+}
+
+const countUpElements = document.querySelectorAll(".territory-cell .count-up");
+const countUpObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) return;
+    startCountUp(entry.target);
+    observer.unobserve(entry.target);
+  });
+}, { threshold: 0.25 });
+
+countUpElements.forEach((element) => countUpObserver.observe(element));
+
+languageToggle.addEventListener("click", () => {
+  setLanguage(languageToggle.dataset.language === "en" ? "fr" : "en");
+});
+
+setLanguage("fr");

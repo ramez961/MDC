@@ -1,0 +1,56 @@
+.contact-value {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.contact-value:hover {
+  color: var(--gold);
+}
+.section-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  font-weight: 600;
+  color: var(--amber);
+  margin-bottom: var(--sp-m);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.brand-logo {
+  display: block;
+  width: 22px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: var(--f-serif);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1;
+}
+
+.brand-sub {
+  display: block;
+  font-size: 7px;
+  letter-spacing: .18em;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(52px, 5.3vw, 88px);
+  line-height: 0.92;
+  max-width: 760px;
+  margin-bottom: 24px;
+}
